@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- bootstrap -->
+    <color name="alert_textDanger">#721c24</color>
+    <color name="alert_bgDanger">#f8d7da</color>
+    <color name="alert_textWarning">#856404</color>
+    <color name="alert_bgWarning">#fff3cd</color>
+    <color name="alert_textSuccess">#155724</color>
+    <color name="alert_bgSuccess">#d4edda</color>
+
+    <color name="bgDark">#343a40</color>
+    <color name="bgInfo">#17a2b8</color>
+
+    <color name="colorDanger">#dc3545</color>
+    <color name="colorWarning">#ffc107</color>
+    <color name="colorSuccess">#28a745</color>
+    <color name="colorPrimary">#007bff</color>
+</resources>

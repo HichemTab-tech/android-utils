@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Utils</string>
+
+    <string name="errorText_requiredField">Veuillez remplir ce champ</string>
+    <string name="errorText_fieldValueTooLong">Valeur trop long !</string>
+    <string name="err_unknown_null_value_display">Inconnu</string>
+
+    <string name="errorText_UnkonwnError">Une erreur inconnue s\'est produite. réessayez plus tard</string>
+    <string name="timeout_snackbar_error">5000</string>
+    <string name="timeout_snackbar_small_success">2300</string>
+    <string name="errorText_ReCAPTCHARequired">Validation reCAPTCHA manquante !</string>
+    <string name="errorText_ReCAPTCHAFailed">Erreur lors de validation reCAPTCHA! réessayez.</string>
+    <string name="errorText_noInternetMode">Hors connexion</string>
+    <string name="errorText_noAppCanOpenFile">Aucune application pouvant ouvrir ce type de fichiers trouvée !\nveuillez le télécharger</string>
+    <string name="errorText_featureComingSoon">Cette fonctionnalité sera disponible dans les prochaines versions inchallah</string>
+</resources>
