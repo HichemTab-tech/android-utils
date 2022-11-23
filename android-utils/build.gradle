@@ -6,7 +6,6 @@ plugins {
 android {
     namespace 'com.hichemtech.android_utils'
     compileSdkVersion 32
-
     defaultConfig {
         minSdk 21
         //noinspection OldTargetApi
@@ -46,7 +45,7 @@ afterEvaluate {
 
                 groupId = 'com.github.HichemTab-tech'
                 artifactId = 'android-utils'
-                version = '1.0.1'
+                version = '1.0.7'
             }
         }
     }
