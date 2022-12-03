@@ -8,12 +8,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.hichemtech.android_utils.TextChangedListener;
 
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("unused")
 public class Forms {
     private EditText[] editTexts;
     private final Context context;

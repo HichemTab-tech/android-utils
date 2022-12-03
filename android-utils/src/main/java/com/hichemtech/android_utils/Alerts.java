@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.snackbar.Snackbar;
 
+@SuppressWarnings("unused")
 public abstract class Alerts {
     public static void showErrorCausedByVariables(ViewGroup containerView, Context context) {
         showSimpleAlert(context.getString(R.string.errorText_UnkonwnError), containerView, context);

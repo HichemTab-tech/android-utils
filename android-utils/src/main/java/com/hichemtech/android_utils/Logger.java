@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
+@SuppressWarnings("unused")
 public abstract class Logger {
     public static void e(String tag, Object... msgs) {
         String s = "";

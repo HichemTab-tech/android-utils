@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 
 import java.util.Random;
+import java.util.UUID;
 
+@SuppressWarnings("unused")
 public abstract class Texts {
     public static Boolean copyStringToClipboard(String stringToCopy, Context context) {
         try {
@@ -38,5 +40,26 @@ public abstract class Texts {
 
     public static int getRandomNumber(int min, int max) {
         return (new Random()).nextInt((max - min) + 1) + min;
+    }
+
+    public static String generateUniqueId() {
+        return generateUniqueId("");
+    }
+
+    public static String generateUniqueId(String... prefixes) {
+        String string = UUID.randomUUID().toString();
+        String prefix = "";
+        for (String s : prefixes) {
+            prefix = prefix.concat(replaceSpecialCharacter(s));
+            if (!prefix.equals("")) {
+                prefix = prefix.concat("_");
+            }
+        }
+        string = prefix.concat(string);
+        return string;
+    }
+
+    public static String replaceSpecialCharacter(String str) {
+        return str.replaceAll("[;/:*?\"<>|&']","");
     }
 }
