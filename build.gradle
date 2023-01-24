@@ -8,5 +8,5 @@ group = 'com.github.HichemTab-tech'
 
 android {
     namespace 'com.hichemtech.android_utils'
-    compileSdkVersion 32
+    compileSdkVersion 33
 }
