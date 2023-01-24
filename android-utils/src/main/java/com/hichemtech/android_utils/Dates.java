@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+@SuppressWarnings("unused")
 public abstract class Dates {
 
     public static final Locale APP_LOCAL = Locale.ROOT;
@@ -20,6 +21,14 @@ public abstract class Dates {
     public static String getCurrentDate() {
         Date currentTime = Calendar.getInstance().getTime();
         return getStringFromDate(currentTime);
+    }
+
+    public static String getCurrentDate(SimpleDateFormat simpleDateFormat) {
+        return simpleDateFormat.format(new Date());
+    }
+
+    public static String getCurrentDateAndTime() {
+        return getCurrentDate(phpDateFormat);
     }
 
     public static String getStringFromDate(Date date) {
