@@ -22,13 +22,19 @@ public class CodeQR {
             ImageView codeQrImage,
             @DrawableRes int drawable
     ) {
-            codeQrImage.setImageBitmap(generateCodeQr(context, content, drawable));
+        codeQrImage.setImageBitmap(generateCodeQr(context, content, drawable));
+    }
+    public static void generateCodeQr(
+            String content,
+            ImageView codeQrImage,
+            Bitmap logo
+    ) {
+        codeQrImage.setImageBitmap(generateCodeQr(content, logo));
     }
 
     public static Bitmap generateCodeQr(
-            Context context,
             String content,
-            @DrawableRes int drawable
+            Bitmap logo
     ) {
         QRCodeWriter writer = new QRCodeWriter();
         try {
@@ -41,12 +47,20 @@ public class CodeQR {
                     bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
                 }
             }
-            Bitmap yourLogo = BitmapFactory.decodeResource(context.getResources(), drawable);
-            return mergeBitmaps(yourLogo, bmp);
+            return mergeBitmaps(logo, bmp);
         } catch (WriterException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static Bitmap generateCodeQr(
+            Context context,
+            String content,
+            @DrawableRes int drawable
+    ) {
+        Bitmap yourLogo = BitmapFactory.decodeResource(context.getResources(), drawable);
+        return generateCodeQr(content, yourLogo);
     }
 
     private static Bitmap mergeBitmaps(Bitmap logo, Bitmap qrcode) {
