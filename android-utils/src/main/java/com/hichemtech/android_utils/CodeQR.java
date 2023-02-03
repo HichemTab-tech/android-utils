@@ -22,23 +22,31 @@ public class CodeQR {
             ImageView codeQrImage,
             @DrawableRes int drawable
     ) {
-        QRCodeWriter writer = new QRCodeWriter();
         try {
-            BitMatrix bitMatrix = writer.encode(content, BarcodeFormat.QR_CODE, 512, 512);
-            int width = bitMatrix.getWidth();
-            int height = bitMatrix.getHeight();
-            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
-                }
-            }
-            Bitmap yourLogo = BitmapFactory.decodeResource(context.getResources(), drawable);
-            codeQrImage.setImageBitmap(mergeBitmaps(yourLogo, bmp));
+            codeQrImage.setImageBitmap(generateCodeQr(context, content, drawable));
 
         } catch (WriterException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Bitmap generateCodeQr(
+            Context context,
+            String content,
+            @DrawableRes int drawable
+    ) throws WriterException {
+        QRCodeWriter writer = new QRCodeWriter();
+        BitMatrix bitMatrix = writer.encode(content, BarcodeFormat.QR_CODE, 512, 512);
+        int width = bitMatrix.getWidth();
+        int height = bitMatrix.getHeight();
+        Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+            }
+        }
+        Bitmap yourLogo = BitmapFactory.decodeResource(context.getResources(), drawable);
+        return mergeBitmaps(yourLogo, bmp);
     }
 
     private static Bitmap mergeBitmaps(Bitmap logo, Bitmap qrcode) {
