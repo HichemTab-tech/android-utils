@@ -31,6 +31,16 @@ public class CodeQR {
     ) {
         codeQrImage.setImageBitmap(generateCodeQr(content, logo));
     }
+    public static void generateCodeQr(
+            String content,
+            ImageView codeQrImage
+    ) {
+        codeQrImage.setImageBitmap(generateCodeQr(content));
+    }
+
+    public static Bitmap generateCodeQr(String content) {
+        return generateCodeQr(content, (Bitmap) null);
+    }
 
     public static Bitmap generateCodeQr(
             String content,
@@ -47,6 +57,7 @@ public class CodeQR {
                     bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
                 }
             }
+            if (logo == null) return bmp;
             return mergeBitmaps(logo, bmp);
         } catch (WriterException e) {
             e.printStackTrace();
