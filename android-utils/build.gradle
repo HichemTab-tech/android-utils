@@ -46,7 +46,7 @@ afterEvaluate {
 
                 groupId = 'com.github.HichemTab-tech'
                 artifactId = 'android-utils'
-                version = '1.0.10'
+                version = '1.0.11'
             }
         }
     }
