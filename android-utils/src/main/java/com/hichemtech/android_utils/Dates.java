@@ -27,6 +27,25 @@ public abstract class Dates {
         return simpleDateFormat.format(new Date());
     }
 
+    public static Date getCurrentDateAsDate() {
+        return Calendar.getInstance().getTime();
+    }
+
+    public static Date editDate(Date date_, int yearAdded, int monthAdded, int dayAdded) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Dates.APP_LOCAL);
+        Calendar today = Calendar.getInstance();
+        Calendar next = Calendar.getInstance();
+        today.clear();
+        Date date;
+        next.clear();
+        next.set(Calendar.YEAR, today.get(Calendar.YEAR) + yearAdded);
+        next.set(Calendar.MONTH, today.get(Calendar.MONTH) + monthAdded);
+        next.set(Calendar.DAY_OF_MONTH, today.get(Calendar.DAY_OF_MONTH));
+        next.add(Calendar.DATE, dayAdded);
+        date = next.getTime();
+        return date;
+    }
+
     public static String getCurrentDateAndTime() {
         return getCurrentDate(phpDateFormat);
     }
@@ -63,6 +82,7 @@ public abstract class Dates {
         return cal.getTime();
     }
 
+    @Deprecated
     public static int[] getHoursAndMinutesFromTimeString(String timeString) {
         if (timeString.length() == 5) {
             if (timeString.contains(":")) {
