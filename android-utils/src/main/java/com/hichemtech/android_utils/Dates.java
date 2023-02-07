@@ -34,15 +34,13 @@ public abstract class Dates {
     public static Date editDate(Date date_, int yearAdded, int monthAdded, int dayAdded) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Dates.APP_LOCAL);
         Calendar today = Calendar.getInstance();
-        Calendar next = Calendar.getInstance();
         today.clear();
+        today.setTime(date_);
         Date date;
-        next.clear();
-        next.set(Calendar.YEAR, today.get(Calendar.YEAR) + yearAdded);
-        next.set(Calendar.MONTH, today.get(Calendar.MONTH) + monthAdded);
-        next.set(Calendar.DAY_OF_MONTH, today.get(Calendar.DAY_OF_MONTH));
-        next.add(Calendar.DATE, dayAdded);
-        date = next.getTime();
+        today.add(Calendar.DATE, dayAdded);
+        today.add(Calendar.YEAR, yearAdded);
+        today.add(Calendar.MONTH, yearAdded);
+        date = today.getTime();
         return date;
     }
 
