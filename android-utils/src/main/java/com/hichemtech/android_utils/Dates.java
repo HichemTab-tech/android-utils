@@ -31,17 +31,14 @@ public abstract class Dates {
         return Calendar.getInstance().getTime();
     }
 
-    public static Date editDate(Date date_, int yearAdded, int monthAdded, int dayAdded) {
+    public static Calendar editDate(Date date_, int yearAdded, int monthAdded, int dayAdded) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Dates.APP_LOCAL);
         Calendar today = Calendar.getInstance();
-        today.clear();
         today.setTime(date_);
-        Date date;
         today.add(Calendar.DATE, dayAdded);
         today.add(Calendar.YEAR, yearAdded);
-        today.add(Calendar.MONTH, yearAdded);
-        date = today.getTime();
-        return date;
+        today.add(Calendar.MONTH, monthAdded);
+        return today;
     }
 
     public static String getCurrentDateAndTime() {
